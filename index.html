@@ -1,32 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>zhlhlf跳转站</title>
-        <style type="text/css">
-            img{ border-radius: 50%; width: 150px; height: 150px , }
-            html{ background-color: rgb(180, 222, 248); }
-        </style>
-    </head>
-<body>
+
+<head>
+    <meta charset="utf-8">
+    <title>zhlhlf跳转站</title>
+    <style type="text/css">
+        img {
+            margin-top: 50px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px,
+        }
+
+        html {
+            background-color: rgb(211, 231, 244);
+        }
+
+        .font {
+            font-size: xxx-large;
+            font-family: cursive;
+            color: red;
+            display: inline-block;
+        }
+
+        .ce {
+            text-align: center;
+            position: relative;
+        }
+
+        .ce1 {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            margin-right: -420px;
+        }
+    </style>
+</head>
+
+<body onload="sj()">
     <div style="text-align: center;">
-        <img src="http://q4.qlogo.cn/headimg_dl?dst_uin=2915513255&spec=100" >
+        <img src="http://q4.qlogo.cn/headimg_dl?dst_uin=2915513255&spec=100">
     </div>
     <br><br>
-    <div style="text-align: center;">
-        <font size="8" color="red" style="font-family: cursive;" >孤舟蓑笠翁 独钓寒江雪</font>
-        <a href="https://qm.qq.com/cgi-bin/qm/qr?k=VMdBaRx-eFQcBYxs92a_6uYat8vdYH5I" style="text-decoration: none;" >
-            <mark><i>by zhlhlf</i></mark>
-        </a>
+    <div class="ce">
+        <div class="font">
+            曾经沧海难为水 除却巫山不是云
+        </div>
+        <div class="ce1"> <a href="https://qm.qq.com/cgi-bin/qm/qr?k=VMdBaRx-eFQcBYxs92a_6uYat8vdYH5I"
+                style="text-decoration: none;">
+                <mark><i>by zhlhlf</i></mark>
+            </a>
+        </div>
     </div>
+
 </body>
 
 <script src="snow.js"></script>
 <script>
-    setTimeout(function(){
-        window.location.href="http://47.115.224.103:5244/"
+    setTimeout(function () {
+        window.location.href = "http://47.115.224.103:5244/"
         // window.location.href="https://4a657e29-a13e-467c-a310-cdc242bfb07c-00-1nb18zemoqhcl.pike.replit.dev/"
     }, 2500);
+
+
+    function sj() {
+        var url = "https://v2.jinrishici.com/one.json"
+        var data
+        var r = new XMLHttpRequest()
+        r.open("get", url)
+        r.send()
+        r.onreadystatechange = function a(n) {
+            if (4 === r.readyState && r.status === 200) {
+                data = JSON.parse(r.responseText)
+                console.log(data)
+            }
+            var c = document.getElementsByClassName("font")[0];
+            data = data["data"]["content"]
+            data = data.replace("，", " ")
+            data = data.replace("！", " ")
+            data = data.replace("。", " ")
+            data = data.replace("？", " ")
+            c.innerHTML = data
+        }
+
+    }
 </script>
 
 </html>
