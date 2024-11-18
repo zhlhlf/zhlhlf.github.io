@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>zhlhlf跳转站</title>
     <style type="text/css">
-        img {
+        .img_first {
             margin-top: 50px;
             border-radius: 50%;
             width: 150px;
@@ -13,7 +13,7 @@
         }
 
         html {
-            background-color: rgb(211, 231, 244);
+            background-color: rgba(230, 255, 241, 0.44);
         }
 
         .font {
@@ -32,14 +32,31 @@
             position: absolute;
             top: 50%;
             right: 50%;
-            margin-right: -420px;
+            margin-right: -45%;
+        }
+        
+        .jzfont{
+            color: gold;
+            font-family: cursive;
+            text-align: center;
+            font-size: 230%;
+        }
+
+        .wxpng{
+            width: 200px;
+            height: 200px;
+        }
+
+        hr{
+            color: aquamarine;
+            margin: 5px 50px;
         }
     </style>
 </head>
 
 <body onload="sj()">
     <div style="text-align: center;">
-        <img src="http://q4.qlogo.cn/headimg_dl?dst_uin=2915513255&spec=100">
+        <img class="img_first" src="http://q4.qlogo.cn/headimg_dl?dst_uin=2915513255&spec=100">
     </div>
     <br><br>
     <div class="ce">
@@ -52,11 +69,18 @@
             </a>
         </div>
     </div>
+    <hr>
+    <div class="jzfont">
+        <div >若是这些资源对你有用 请捐赠于我 维持本站</div>
+        <img class="wxpng" src="./wx.png" >
+    </div>
 
 </body>
 
 <script src="snow.js"></script>
+<script src="yinghua.js"></script>
 <script>
+    
     setTimeout(function () {
         window.location.href = "http://8.154.32.252:5244/"
       // window.location.href = "https://pahuy-my.sharepoint.com/:f:/g/personal/zhlhlf_pahuy_onmicrosoft_com/EilLIsltOtdHkszowZXX9dgB-kmXzcnmWQq8EQCmwQ6yOA"
