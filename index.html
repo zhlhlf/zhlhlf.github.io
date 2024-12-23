@@ -84,7 +84,9 @@
     const host = "http://119.8.42.151:5244/";
 
     //获取请求参数jczhl 
-    var url = new URLSearchParams(window.location.search).get("jczhl");;
+    var url = new URLSearchParams(window.location.search).get("jczhl");
+    if(url === null) url = "";
+    
     console.log("后缀是："+url);
 
     var final_url = host + url;
