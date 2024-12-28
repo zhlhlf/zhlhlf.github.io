@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>zhlhlf跳转站</title>
+    <style type="text/css">
+        .img_first {
+            margin-top: 50px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px,
+        }
+
+        html {
+            background: linear-gradient(to right, rgba(230, 255, 241, 0.44), rgba(223, 241, 179, 0.44));;
+        }
+
+        .font {
+            font-size: xxx-large;
+            font-family: cursive;
+            color: red;
+            display: inline-block;
+        }
+
+        .ce {
+            text-align: center;
+            position: relative;
+        }
+
+        .ce1 {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            margin-right: -45%;
+        }
+        
+        .jzfont{
+            color: gold;
+            font-family: cursive;
+            text-align: center;
+            font-size: 230%;
+        }
+
+        .wxpng{
+            width: 200px;
+            height: 200px;
+        }
+
+        hr{
+            color: aquamarine;
+            margin: 5px 50px;
+        }
+    </style>
+</head>
+
+<body onload="sj()">
+    <div style="text-align: center;">
+        <img class="img_first" src="http://q4.qlogo.cn/headimg_dl?dst_uin=2915513255&spec=100">
+    </div>
+    <br><br>
+    <div class="ce">
+        <div class="font">
+            曾经沧海难为水 除却巫山不是云
+        </div>
+        <div class="ce1"> <a href="https://qm.qq.com/cgi-bin/qm/qr?k=VMdBaRx-eFQcBYxs92a_6uYat8vdYH5I"
+                style="text-decoration: none;">
+                <mark><i>by zhlhlf</i></mark>
+            </a>
+        </div>
+    </div>
+    <hr>
+    <div class="jzfont">
+        <div >若是这些资源对你有用 请捐赠于我 维持本站</div>
+        <img class="wxpng" src="png/wx.png" >
+    </div>
+
+</body>
+
+<script src="js/snow.js"></script>
+<script src="js/yinghua.js"></script>
+<script>
+
+    const host = "http://zhlhlf.us.kg/";
+
+    //获取请求参数jczhl 
+    var url = new URLSearchParams(window.location.search).get("jczhl");
+    if(url === null) url = "";
+    
+    console.log("后缀是："+url);
+
+    var final_url = host + url;
+    console.log("最终请求地址："+final_url);
+
+    setTimeout(function () {
+        window.location.href = final_url;
+      // window.location.href = "https://pahuy-my.sharepoint.com/:f:/g/personal/zhlhlf_pahuy_onmicrosoft_com/EilLIsltOtdHkszowZXX9dgB-kmXzcnmWQq8EQCmwQ6yOA"
+    }, 2500);
+
+
+    function sj() {
+        var url = "https://v2.jinrishici.com/one.json"
+        var data
+        var r = new XMLHttpRequest()
+        r.open("get", url)
+        r.send()
+        r.onreadystatechange = function a(n) {
+            if (4 === r.readyState && r.status === 200) {
+                data = JSON.parse(r.responseText)
+                console.log(data)
+            }
+            var c = document.getElementsByClassName("font")[0];
+            data = data["data"]["content"]
+            data = data.replace("，", " ")
+            data = data.replace("！", " ")
+            data = data.replace("。", " ")
+            data = data.replace("？", " ")
+            c.innerHTML = data
+        }
+
+    }
+</script>
+
+</html>
