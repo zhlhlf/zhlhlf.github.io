@@ -13,7 +13,8 @@
         }
 
         html {
-            background: linear-gradient(to right, rgba(230, 255, 241, 0.44), rgba(223, 241, 179, 0.44));;
+            background: linear-gradient(to right, rgba(230, 255, 241, 0.44), rgba(223, 241, 179, 0.44));
+            ;
         }
 
         .font {
@@ -34,23 +35,45 @@
             right: 50%;
             margin-right: -45%;
         }
-        
-        .jzfont{
+
+        .jzfont {
             color: gold;
             font-family: cursive;
             text-align: center;
             font-size: 230%;
         }
 
-        .wxpng{
+        .wxpng {
             width: 200px;
             height: 200px;
         }
 
-        hr{
+        hr {
             color: aquamarine;
             margin: 5px 50px;
         }
+
+        .to {
+            margin-top: 50px;
+            position: fixed;
+            width: 100%;
+            color: rgb(145, 199, 246);
+            text-align: center;
+            line-height: 30px;
+            font-size: 18px;
+        }
+
+        .author {
+            font-style: italic;
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            color: rgb(241, 159, 127);
+            text-align: center;
+            line-height: 30px;
+            font-size: 18px;
+        }
+
     </style>
 </head>
 
@@ -71,8 +94,16 @@
     </div>
     <hr>
     <div class="jzfont">
-        <div >若是这些资源对你有用 请捐赠于我 维持本站</div>
-        <img class="wxpng" src="png/wx.png" >
+        <div>若是这些资源对你有用 请捐赠于我 维持本站</div>
+        <img class="wxpng" src="png/wx.png">
+    </div>
+
+    <a class="to" href="">没有跳转?点击进入</a>
+
+    <div class="author">
+        <div>
+            by zhlhlf
+        </div>
     </div>
 
 </body>
@@ -85,16 +116,18 @@
 
     //获取请求参数jczhl 
     var url = new URLSearchParams(window.location.search).get("jczhl");
-    if(url === null) url = "";
-    
-    console.log("后缀是："+url);
+    if (url === null) url = "";
+
+    console.log("后缀是：" + url);
 
     var final_url = host + url;
-    console.log("最终请求地址："+final_url);
+    console.log("最终请求地址：" + final_url);
+
+    document.getElementsByClassName("to")[0].href = final_url;
 
     setTimeout(function () {
         window.location.href = final_url;
-      // window.location.href = "https://pahuy-my.sharepoint.com/:f:/g/personal/zhlhlf_pahuy_onmicrosoft_com/EilLIsltOtdHkszowZXX9dgB-kmXzcnmWQq8EQCmwQ6yOA"
+        // window.location.href = "https://pahuy-my.sharepoint.com/:f:/g/personal/zhlhlf_pahuy_onmicrosoft_com/EilLIsltOtdHkszowZXX9dgB-kmXzcnmWQq8EQCmwQ6yOA"
     }, 2500);
 
 
