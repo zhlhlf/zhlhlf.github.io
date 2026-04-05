@@ -5,23 +5,46 @@
     <meta charset="utf-8">
     <title>zhlhlf跳转站</title>
     <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
         .img_first {
-            margin-top: 50px;
+            margin-top: 10px;
             border-radius: 50%;
             width: 150px;
-            height: 150px,
+            height: 150px;
+            border: 4px solid rgba(255, 255, 255, 0.75);
+            box-shadow: 0 12px 35px rgba(80, 115, 170, 0.25);
+            object-fit: cover;
         }
 
         html {
-            background: linear-gradient(to right, rgba(230, 255, 241, 0.44), rgba(223, 241, 179, 0.44));
-            ;
+            min-height: 100%;
+            background:
+                radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent 35%),
+                radial-gradient(circle at bottom right, rgba(255, 182, 193, 0.35), transparent 30%),
+                linear-gradient(135deg, #dbeafe 0%, #f5d0fe 50%, #dcfce7 100%);
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 16px;
+            font-family: "Microsoft YaHei", sans-serif;
+            color: #1f2937;
         }
 
         .font {
-            font-size: xxx-large;
-            font-family: cursive;
-            color: red;
+            font-size: clamp(28px, 4vw, 42px);
+            font-family: "STKaiti", "KaiTi", cursive;
+            color: #fff;
             display: inline-block;
+            line-height: 1.5;
+            text-shadow: 0 6px 20px rgba(31, 41, 55, 0.2);
         }
 
         .ce {
@@ -30,79 +53,156 @@
         }
 
         .ce1 {
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            margin-right: -45%;
+            margin-top: 18px;
         }
 
         .jzfont {
-            color: gold;
-            font-family: cursive;
+            color: #fef3c7;
+            font-family: "Microsoft YaHei", sans-serif;
             text-align: center;
-            font-size: 230%;
+            font-size: clamp(18px, 2.4vw, 24px);
+            line-height: 1.8;
         }
 
         .wxpng {
-            width: 200px;
-            height: 200px;
+            width: min(220px, 60vw);
+            height: min(220px, 60vw);
+            margin-top: 18px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 12px 30px rgba(31, 41, 55, 0.18);
         }
 
         hr {
-            color: aquamarine;
-            margin: 5px 50px;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.9), transparent);
+            margin: 28px 0;
         }
 
         .to {
-            margin-top: 50px;
-            position: fixed;
-            width: 100%;
-            color: rgb(145, 199, 246);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 28px;
+            padding: 14px 30px;
+            border-radius: 999px;
+            color: #eff6ff;
             text-align: center;
             line-height: 30px;
             font-size: 18px;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.22);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        .to:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 16px 35px rgba(59, 130, 246, 0.28);
         }
 
         .author {
             font-style: italic;
-            position: fixed;
-            bottom: 20px;
+            margin-top: 28px;
             width: 100%;
-            color: rgb(241, 159, 127);
+            color: rgba(255, 255, 255, 0.82);
             text-align: center;
             line-height: 30px;
-            font-size: 18px;
+            font-size: 16px;
+        }
+
+        .page {
+            width: min(720px, 100%);
+        }
+
+        .glass-card {
+            position: relative;
+            overflow: hidden;
+            padding: 40px 28px;
+            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 25px 60px rgba(31, 41, 55, 0.18);
+        }
+
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.08));
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .by-link {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.24);
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+        }
+
+        .by-link mark {
+            background: transparent;
+            color: inherit;
+        }
+
+        @media (max-width: 640px) {
+            .glass-card {
+                padding: 30px 20px;
+                border-radius: 24px;
+            }
         }
 
     </style>
 </head>
 
 <body onload="sj()">
-    <div style="text-align: center;">
-        <img class="img_first" src="http://q4.qlogo.cn/headimg_dl?dst_uin=2915513255&spec=100">
-    </div>
-    <br><br>
-    <div class="ce">
-        <div class="font">
-            曾经沧海难为水 除却巫山不是云
-        </div>
-        <div class="ce1"> <a href="https://qm.qq.com/cgi-bin/qm/qr?k=VMdBaRx-eFQcBYxs92a_6uYat8vdYH5I"
-                style="text-decoration: none;">
-                <mark><i>by zhlhlf</i></mark>
-            </a>
-        </div>
-    </div>
-    <hr>
-    <div class="jzfont">
-        <div>若是这些资源对你有用 请捐赠于我 维持本站</div>
-        <img class="wxpng" src="png/wx.png">
-    </div>
+    <div class="page">
+        <div class="glass-card">
+            <div class="content">
+                <div style="text-align: center;">
+                    <img class="img_first" src="http://q4.qlogo.cn/headimg_dl?dst_uin=2915513255&spec=100">
+                </div>
+                <br><br>
+                <div class="ce">
+                    <div class="font">
+                        曾经沧海难为水 除却巫山不是云
+                    </div>
+                    <div class="ce1">
+                        <a class="by-link" href="https://qm.qq.com/cgi-bin/qm/qr?k=VMdBaRx-eFQcBYxs92a_6uYat8vdYH5I">
+                            <mark><i>by zhlhlf</i></mark>
+                        </a>
+                    </div>
+                </div>
+                <hr>
+                <div class="jzfont">
+                    <div>若是这些资源对你有用 请捐赠于我 维持本站</div>
+                    <img class="wxpng" src="png/wx.png">
+                </div>
 
-    <a class="to" href="">没有跳转?点击进入</a>
+                <div style="text-align: center;">
+                    <a class="to" href="">没有跳转?点击进入</a>
+                </div>
 
-    <div class="author">
-        <div>
-            by zhlhlf
+                <div class="author">
+                    <div>
+                        by zhlhlf
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -112,7 +212,7 @@
 <script src="js/yinghua.js"></script>
 <script>
 
-    const host = "https://ol.hlzhl.dpdns.org/";
+    const host = "http://119.8.42.151:5244/";
 
     //获取请求参数jczhl 
     var url = new URLSearchParams(window.location.search).get("jczhl");
